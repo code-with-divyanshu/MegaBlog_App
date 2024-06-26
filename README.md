@@ -1,8 +1,6 @@
 # Mega Blog
 
-Welcome to the GitHub repository for the Mega Blog App! This repository contains the source code for a powerful blogging platform equipped with essential features like user authentication, post management, and content creation. It utilizes Appwrite as the backend service for managing the database and storage operations.
-
-![image](https://github.com/rajanjha9235/mega-blog/assets/138964806/e27c8a52-05f9-4b5f-a2e5-ea9c1f041fdd)
+Welcome to the GitHub repository for the Mega Blog App! This repository contains the source code for a blogging platform equipped with essential features like user authentication, post management, and content creation. It utilizes Appwrite as the backend service for managing the database and storage operations.
 
 ## Introduction
 
@@ -47,11 +45,11 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
 ## Deployment & Repository
 
 - **Live Demo:** https://mega-blog-app.netlify.app
-- **Repository:** https://github.com/rajanjha9235/mega-blog
+- **Repository:** https://github.com/code-with-divyanshu/MegaBlog_App
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/rajanjha9235/mega-blog.git`
+1. Clone the repository: `git clone https://github.com/code-with-divyanshu/MegaBlog_App`
 
 2. Navigate to the project directory: `cd mega-blog`
 
@@ -61,35 +59,9 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
 
 5. Access the application in your browser at `http://localhost:5173` (or the port specified in package.json).
 
-### Appwrite Configuration
-
-- Create an Appwrite account and project at https://appwrite.io.
-
-- Obtain your project's endpoint URL, project ID, and API key.
-
-- Create a `.env` file at the project root and add the following environment variables, replacing placeholders with your actual values:
-
-  1. `VITE_APPWRITE_URL=""`
-  2. `VITE_APPWRITE_PROJECT_ID=""`
-  3. `VITE_APPWRITE_DATABASE_ID=""`
-  4. `VITE_APPWRITE_COLLECTION_ID=""`
-  5. `VITE_APPWRITE_BUCKET_ID=""`
-  6. `VITE_TINY_EDITOR_API_KEY=""`
-
 ### Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-### License
-
-This project is licensed under the Apache License - see the [LICENSE](https://github.com/rajanjha9235/mega-blog/blob/main/LICENSE) file for details.
-
-### Additional Notes
-
-- Consider adding unit tests and end-to-end tests for robust quality assurance.
-- Explore deploying the application to a production environment using a service like Vercel or Netlify.
-- Refer to the official documentation for React.js, React Hook Form, TinyMCE, Redux, react-redux, react-router-dom, and Appwrite for detailed usage and configuration guidance.
-- This README.md provides a general overview. For a complete understanding, delve into the source code available in the GitHub repository.
 
 ## Disclaimer
 
