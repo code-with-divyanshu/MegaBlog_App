@@ -54,24 +54,31 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
 
 ## Installation
 
-1. Clone the repository:
+### Clone the repository:
 
-   `git clone https://github.com/code-with-divyanshu/MegaBlog_App`
+    git clone https://github.com/code-with-divyanshu/MegaBlog_App
 
-2. Navigate to the project directory:
+### Navigate to the project directory:
 
-   `cd mega-blog`
+    cd mega-blog
 
-3. Install dependencies:
+### Install dependencies:
 
-   `npm install`
+    npm install
 
-4. Running the Development Server :
+### Running the Development Server :
 
-`npm run dev`
+    npm run dev
 
-5. Access the application in your browser at (or the port specified in package.json).
-   `http://localhost:5173`
+### Access the application in your browser at
+
+    http://localhost:5173`
+
+(or the port specified in package.json).
+
+### For deploy and Build application:
+
+    npm run build
 
 ### Contributing
 
