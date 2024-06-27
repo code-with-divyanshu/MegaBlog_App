@@ -44,8 +44,13 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
 
 ## Deployment & Repository
 
-- **Live Demo:** https://mega-blog-app.netlify.app
-- **Repository:** https://github.com/code-with-divyanshu/MegaBlog_App
+- **Live Demo:**
+
+  https://mega-blog-app.netlify.app
+
+- **Repository:**
+
+  https://github.com/code-with-divyanshu/MegaBlog_App
 
 ## Installation
 
