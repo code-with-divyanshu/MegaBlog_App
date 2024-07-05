@@ -13,8 +13,9 @@ function Footer() {
                 <Logo width="100px" />
               </div>
               <div>
-                <p className="text-sm text-gray-600">
-                  &copy; Copyright 2023. All Rights Reserved by DevUI.
+                <p className="text-sm text-black">
+                  &copy; Copyright 2024. All Rights Reserved by
+                  @Developer_Divyanshu.
                 </p>
               </div>
             </div>
@@ -22,39 +23,43 @@ function Footer() {
           <div className="w-full p-6 md:w-1/2 lg:w-2/12">
             <div className="h-full">
               <h3 className="tracking-px mb-9  text-xs font-semibold uppercase text-gray-500">
-                Company
+                Other Profile
               </h3>
               <ul>
                 <li className="mb-4">
                   <Link
                     className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
+                    to="https://devloper-divyanshu.netlify.app/"
+                    target="_blank"
                   >
-                    Features
+                    Personal Portfolio
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
                     className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
+                    to="https://www.linkedin.com/in/divyanshu-bartwal-b7b058286/"
+                    target="_blank"
                   >
-                    Pricing
+                    Linkedin
                   </Link>
                 </li>
                 <li className="mb-4">
                   <Link
                     className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
+                    to="https://github.com/code-with-divyanshu"
+                    target="_blank"
                   >
-                    Affiliate Program
+                    Github
                   </Link>
                 </li>
                 <li>
                   <Link
                     className=" text-base font-medium text-gray-900 hover:text-gray-700"
-                    to="/"
+                    to="https://x.com/DivyanshuB21040"
+                    target="_blank"
                   >
-                    Press Kit
+                    Twitter
                   </Link>
                 </li>
               </ul>
