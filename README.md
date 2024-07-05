@@ -40,7 +40,7 @@ Mega Blog is a full-fledged blog application built with React.js that offers the
 - **Rich Text Editor:** TinyMCE.
 - **State Management:** Redux with react-redux
 - **Routing:** react-router-dom
-- **Backend:** Appwrite (for database, storage, and authentication) and you can use firefox etc.
+- **Backend:** Appwrite (for database, storage, and authentication) and you can use firebase etc.
 
 ## Deployment & Repository
 
