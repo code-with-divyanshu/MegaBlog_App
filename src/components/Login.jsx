@@ -27,19 +27,19 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full py-8">
+    <div className="flex items-center justify-center mx-auto lg:max-w-full py-8 max-w-[350px]">
       <div
         className={`mx-auto w-full max-w-lg bg-gradient-to-r from-blue-500 to-cyan-300 hover:to-teal-300 rounded-xl p-10 border border-black/40`}
       >
         <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+          <span className="w-full justify-center flex">
+            <Logo className="w-[60px] mb-5" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
-          Sign in to your account
+        <h2 className="text-center text-2xl font-bold leading-tight bg-gradient-to-r from-cyan-900 via-orange-500 to-indigo-400 inline-block text-transparent bg-clip-text hover:text-black">
+          Login to your account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+        <p className="mt-2 text-center text-lg text-black/60">
           Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
@@ -72,8 +72,11 @@ function Login() {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full">
-              Sign In
+            <Button
+              type="submit"
+              className="w-full py-3 bg-gradient-to-r from-sky-800 via-purple-500 to-indigo-400"
+            >
+              Login
             </Button>
           </div>
         </form>
