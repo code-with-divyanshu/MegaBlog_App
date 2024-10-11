@@ -27,19 +27,19 @@ function SignUp() {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mx-auto lg:max-w-full py-8 max-w-[350px]">
       <div
         className={`mx-auto w-full max-w-lg bg-gradient-to-r from-blue-500 to-cyan-300 hover:to-cyan-500 rounded-xl p-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+          <span className="flex justify-center">
+            <Logo className="w-[60px] mb-5" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+        <h2 className="text-center text-2xl font-bold leading-tight bg-gradient-to-r from-cyan-900 via-orange-500 to-indigo-400 inline-block text-transparent bg-clip-text hover:text-black">
           Sign up to create account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+        <p className="mt-2 text-ceter text-lg text-black/60">
           Already have an account?&nbsp;
           <Link
             to="/login"
@@ -80,7 +80,10 @@ function SignUp() {
                 required: true,
               })}
             />
-            <Button type="Submit" className="W-full">
+            <Button
+              type="Submit"
+              className="w-full py-3 bg-gradient-to-r from-sky-800 via-purple-500 to-indigo-400"
+            >
               Create Account
             </Button>
           </div>
