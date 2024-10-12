@@ -66,7 +66,7 @@ function Header() {
                           navigate(item.slug);
                           setMobileMenu(!mobileMenu);
                         }}
-                        className="inline-bock px-4 py-2 duration-200 font-bold uppercase hover:bg-blue-300 rounded-full"
+                        className="inline-bock px-4 py-2 duration-200 font-bold uppercase hover:bg-gradient-to-r from-blue-600 via-teal-500 to-indigo-400 rounded-full"
                       >
                         {item.name}
                       </button>
@@ -86,7 +86,7 @@ function Header() {
                   <li key={item.name}>
                     <button
                       onClick={() => navigate(item.slug)}
-                      className="inline-bock px-4 py-2 duration-200 font-bold uppercase hover:bg-blue-300 rounded-full"
+                      className="inline-bock px-4 py-2 duration-200 font-bold uppercase hover:bg-gradient-to-r from-blue-600 via-teal-500 to-indigo-400 rounded-full"
                     >
                       {item.name}
                     </button>
