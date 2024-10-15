@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="w-full flex flex-wrap content-between bg-blue-400 rounded-md">
+    <div className="w-full flex flex-wrap content-between">
       <div className="w-full block">
         <Header />
         <main>
