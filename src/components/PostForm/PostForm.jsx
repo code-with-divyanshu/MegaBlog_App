@@ -76,25 +76,27 @@ function PostForm({ post }) {
     };
   }, [watch, slugTransform, setValue]);
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="lg:w-2/3 px-2 py-2">
+    <form onSubmit={handleSubmit(submit)} className="flex lg:flex-row flex-col">
+      <div className="px-2 py-2">
         <Input
           label="Title :"
           placeholder="Title"
           className="mb-4"
           {...register("title", { required: true })}
         />
-        <Input
-          label="Slug :"
-          placeholder="Slug"
-          className="mb-4"
-          {...register("slug", { required: true })}
-          onInput={(e) => {
-            setValue("slug", slugTransform(e.currentTarget.value), {
-              shouldValidate: true,
-            });
-          }}
-        />
+        {!post && (
+          <Input
+            label="Slug :"
+            placeholder="Slug"
+            className="mb-4"
+            {...register("slug", { required: true })}
+            onInput={(e) => {
+              setValue("slug", slugTransform(e.currentTarget.value), {
+                shouldValidate: true,
+              });
+            }}
+          />
+        )}
         <RTE
           label="Content :"
           name="content"
@@ -102,11 +104,11 @@ function PostForm({ post }) {
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="lg:w-1/3 px-2 py-2">
+      <div className="px-2 py-2">
         <Input
           label="Featured Image :"
           type="file"
-          className="mb-4"
+          className="mb-4 text-[18px] text-cyan-700 font-bold rounded-xl"
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image", { required: !post })}
         />
@@ -115,7 +117,7 @@ function PostForm({ post }) {
             <img
               src={appwriteService.getFilePreview(post.featuredImage)}
               alt={post.title}
-              className="rounded-lg"
+              className="rounded-lg w-full"
             />
           </div>
         )}
@@ -128,7 +130,7 @@ function PostForm({ post }) {
         <Button
           type="submit"
           bgColor={post ? "bg-green-500" : undefined}
-          className="w-full"
+          className="w-full bg-gradient-to-r from-teal-400 to-blue-500 py-3"
         >
           {post ? "Update" : "Submit"}
         </Button>
