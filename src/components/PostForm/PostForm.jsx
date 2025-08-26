@@ -20,13 +20,23 @@ function PostForm({ post }) {
   const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
+    if (!post) {
+      if (!userData || !userData.$id) {
+        navigate("/login");
+        return;
+      }
+    }
+
     if (post) {
-      const file = data.image[0]
-        ? appwriteService.uploadFile(data.image[0])
-        : null;
+      const hasNewImage = data.image && data.image[0];
+      const file = hasNewImage ? await appwriteService.uploadFile(data.image[0]) : null;
 
       if (file) {
-        appwriteService.deleteFile(post.featuredImage);
+        try {
+          await appwriteService.deleteFile(post.featuredImage);
+        } catch (err) {
+          // ignore delete errors (e.g., 404 not found)
+        }
       }
 
       const dbPost = await appwriteService.updatePost(post.$id, {
@@ -37,6 +47,8 @@ function PostForm({ post }) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
+      const hasImage = data.image && data.image[0];
+      if (!hasImage) return; // validation already enforces when creating
       const file = await appwriteService.uploadFile(data.image[0]);
 
       if (file) {
@@ -67,7 +79,7 @@ function PostForm({ post }) {
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === "title") {
-        setValue("slug", slugTransform(value.title, { shouldValidate: true }));
+        setValue("slug", slugTransform(value.title), { shouldValidate: true });
       }
     });
 
@@ -115,7 +127,7 @@ function PostForm({ post }) {
         {post && (
           <div className="w-full mb-4">
             <img
-              src={appwriteService.getFilePreview(post.featuredImage)}
+              src={appwriteService.getFileView(post.featuredImage)}
               alt={post.title}
               className="rounded-lg w-full"
             />
