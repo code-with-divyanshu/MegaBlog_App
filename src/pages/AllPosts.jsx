@@ -6,16 +6,34 @@ function AllPosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    appwriteService
-      .getPosts([])
-      .then((posts) => {
-        if (posts) {
-          setPosts(posts.documents);
-        }
-      })
-      .catch((eror) => {
-        console.log(eror);
+    let unsubscribe;
+
+    const fetchPosts = () => {
+      appwriteService
+        .getPosts([])
+        .then((posts) => {
+          if (posts) {
+            setPosts(posts.documents);
+          }
+        })
+        .catch((eror) => {
+          console.log(eror);
+        });
+    };
+
+    fetchPosts();
+
+    try {
+      unsubscribe = appwriteService.subscribeToPosts(() => {
+        fetchPosts();
       });
+    } catch (e) {
+      console.log(e);
+    }
+
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
   }, []);
 
   return (

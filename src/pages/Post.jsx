@@ -26,8 +26,9 @@ export default function Post() {
   const deletePost = () => {
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
-        appwriteService.deleteFile(post.featuredImage);
-        navigate("/");
+        appwriteService.deleteFile(post.featuredImage).finally(() => {
+          navigate("/");
+        });
       }
     });
   };
@@ -50,7 +51,7 @@ export default function Post() {
             <div className="h-full w-full rounded-md bg-gradient-to-r from-blue-500 via-red-500 to-purple-500 p-1">
               <div className="w-full h-full bg-gray-800 rounded-xl p-4">
                 <img
-                  src={appwriteService.getFilePreview(post.featuredImage)}
+                  src={String(appwriteService.getFileView(post.featuredImage))}
                   alt={post.title}
                   className="rounded-xl lg:h-[400px] w-full"
                 />

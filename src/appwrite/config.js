@@ -19,13 +19,14 @@ export class Service {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug,
+        ID.unique(),
         {
           title,
           content,
           featuredImage,
           status,
           userId,
+          // omit slug if collection schema doesn't include it
         }
       );
     } catch (error) {
@@ -111,6 +112,10 @@ export class Service {
       await this.bucket.deleteFile(conf.appwriteBucketId, fileId);
       return true;
     } catch (error) {
+      // Gracefully ignore not-found errors during delete
+      if (error && error.code === 404) {
+        return false;
+      }
       console.log("Appwrite service :: deleteFile :: error", error);
       return false;
     }
@@ -118,6 +123,15 @@ export class Service {
 
   getFilePreview(fileId) {
     return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
+  }
+
+  getFileView(fileId) {
+    return this.bucket.getFileView(conf.appwriteBucketId, fileId);
+  }
+
+  subscribeToPosts(onChange) {
+    const channel = `databases.${conf.appwriteDatabaseId}.collections.${conf.appwriteCollectionId}.documents`;
+    return this.client.subscribe(channel, onChange);
   }
 }
 

@@ -2,24 +2,49 @@ import React, { useEffect, useState } from "react";
 import appwriteService from "../appwrite/config";
 import { Button, Container, PostCard } from "../components";
 import { blog } from "../assets";
+import { useSelector } from "react-redux";
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    appwriteService
-      .getPosts()
-      .then((posts) => {
-        if (posts) {
-          setPosts(posts.documents);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    let unsubscribe;
 
-  if (posts.length === 0) {
+    if (!authStatus) {
+      setPosts([]);
+      return () => {};
+    }
+
+    const fetchPosts = () => {
+      appwriteService
+        .getPosts()
+        .then((posts) => {
+          if (posts) {
+            setPosts(posts.documents);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    fetchPosts();
+
+    try {
+      unsubscribe = appwriteService.subscribeToPosts(() => {
+        fetchPosts();
+      });
+    } catch (e) {
+      console.log(e);
+    }
+
+    return () => {
+      if (typeof unsubscribe === "function") unsubscribe();
+    };
+  }, [authStatus]);
+
+  if (!authStatus || posts.length === 0) {
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>
